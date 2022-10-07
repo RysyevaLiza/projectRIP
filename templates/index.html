@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+  <meta charset="utf-8">
+    <title>PegasFly</title>
+</head>
+<body>
+    <p align="center">Туроператор "PegasFly" - новая высота вашего отдыха! </p>
+    <p align="center">Сегодня {{ data.current_date }}, а это значит - время для путешествий! </p>
+    <p align="center"><a href="tour/">Полетели!</a></p>
+<ul>
+    {% for var in data.list %}
+        <li>Мы любим {{ var }}!</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

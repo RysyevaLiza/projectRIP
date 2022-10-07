@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Список стран{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for i in data.countries %}
+       <li><a href="{% url 'country_url' i.id %}">{{ i.title }}</a> </li>
+        <img src="{{ i.img }}" height="150">
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

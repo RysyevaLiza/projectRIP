@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Список отелей{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for i in data.show %}
+        <li><a href="{% url  'count_url_url'  i.id %}">{{ i.full_name }} </a>
+        <br> Адрес: {{ i.full_name}}
+    {% endfor %}#}
+</ul>
+{% endblock %}
+
+ {#    {% for i in data.show %}#}
+{#        <li><a href="{% url  'count_url'  i.id %}">{{ id.full_name }} </a>#}
+{#        <p>Адрес: {{i.address }}</p>#}
+{#    {% empty %}#}
+{#        <li>Список пуст</li>#}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Список отелей{% endblock %}
+
+{% block content %}
+
+<ul>
+        <p>Категория: {{data.room.category }}</p>
+        <p>Тип кровати: {{data.room.bed_type }}</p>
+        <p>Стоимость в сутки: {{data.room.price }}</p>
+
+</ul>
+{% endblock %}
