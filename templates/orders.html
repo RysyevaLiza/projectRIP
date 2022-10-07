@@ -6,8 +6,9 @@
 <p_hello>Добро пожаловать! Туроператор PegasFly-гарант вашего отдыха</p_hello>
 <p_hepl><br> Пожалуйста, выберите нужный раздел</p_hepl>
 <ul>
-    {% for i in data.range %}
-        <li><a href="{% url 'tour_url' i.idrange %}">{{ i.rangeName }}</a> </li>
+    {% for i in data %}
+{#        <li><a href="{% url 'tour_url' i.idrange %}">{{ i.rangeName }}</a> </li>#}
+        <li>{{ i.rangeName }}</li>
     {% empty %}
         <li>Список пуст! Sold out</li>
     {% endfor %}

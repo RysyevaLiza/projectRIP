@@ -10,10 +10,15 @@ def start(request):
         'list': ['качество', 'комфорт', 'эмоции']
     }})
 
-def GetTour(request):
+
+def GetTours(request):
     return render(request, 'orders.html', {'data':
-          range.objects.all()
-    })
+                                               range.objects.all()
+                                           })
+def GetTours(request, id):
+    return render(request, 'order.html', {'data':
+                                              range.objects.filter(range_id=id)
+                                          })
 
 def GetHotels(request):
 	return render(request, 'hotels.html', {'data':{
@@ -26,11 +31,12 @@ def GetRooms(request, id):
 		'rooms': room.objects.filter(hotel_id=id)
 	}})
 
-
 def GetContact(request):
     return render(request, 'contact.html', {'data':{
         'show': show.objects.all()}
     })
+
+
 
     # return render(request, 'orders.html', {'data' : {
     # 'current_date': date.today(),
@@ -65,12 +71,7 @@ def GetContact(request):
        # ]
     #}})
 
-#def GetTours(request, id):
-    #return render(request, 'order.html', {'data' : {
-       # 'current_date': date.today(),
-       # 'id': id,
-       # 'hotel': hotels
-    #}})
+
 
 #hotels=[
             #{'title': 'Elegant Hotel & Resort', 'id': 1,
