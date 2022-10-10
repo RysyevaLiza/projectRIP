@@ -15,7 +15,7 @@ def GetTours(request):
     return render(request, 'orders.html', {'data':
                                                range.objects.all()
                                            })
-def GetTours(request, id):
+def GetTour(request, id):
     return render(request, 'order.html', {'data':
                                               range.objects.filter(range_id=id)
                                           })

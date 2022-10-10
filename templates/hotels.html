@@ -9,7 +9,7 @@
         <br> Адрес: {{ hotel.address }}
         <br> Количество звезд: {{ hotel.stars }}</li>
         <br> Страна: {{ hotel.country }}
-        <img src="{% static hotel.image  %}" height="200" alt="photo {{ hotel.idhotel }}">
+{#        <img src="{% static hotel.image  %}" height="200" alt="photo {{ hotel.idhotel }}">#}
     {% empty %}
         <li>Список пуст. </li>
     {% endfor %}
@@ -19,16 +19,3 @@
     <input type="button" onclick="history.back();" value="Назад"/>
 {% endblock %}
 
-{#% block content %#}
-{##}
-{#<#ul>#}
-    {#% for one in data.hotel %#}
-{#       <#li><#a href="{#% url 'hotel_url' one.id %#}">{{#one.title }}<#/a> <#/li>#}
-{#        <#p>Адрес: {{one.address }}<#/p>#}
-{#        <#p>Количество звезд: {{one.stars }}<#/p>#}
-{#        <#p>Стоимость: {{one.price }}<#/p>#}
-    {#% empty %#}
-{#        <#li>Список пуст<#/li>#}
-    {#% endfor %#}
-{#<#/ul>#}
-{#% endblock %#}

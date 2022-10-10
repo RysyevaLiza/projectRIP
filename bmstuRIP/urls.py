@@ -9,7 +9,7 @@ urlpatterns = [
 
     path('', views.start),
 
-    path('tour/', views.GetTour),
+    path('tour/', views.GetTours),
 
     path('tour/<int:id>/', views.GetTour, name='tour_url'),
 
