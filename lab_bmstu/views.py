@@ -28,7 +28,8 @@ def GetHotels(request):
 def GetRooms(request, id):
 	return render(request,'hotel.html', {'data':{
 		'hotel':hotel.objects.filter(id=id)[0],
-		'rooms': room.objects.filter(id=id)[0]
+		'rooms': room.objects.filter(id=id)[0],
+        'idfor' : id
 	}})
 
 def GetContact(request):

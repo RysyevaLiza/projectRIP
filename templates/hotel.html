@@ -5,9 +5,21 @@
 {% block content %}
 
 <ul>
+
         <p>Категория: {{data.rooms.category }}</p>
         <p>Тип кровати: {{data.rooms.bed_type }}</p>
         <p>Стоимость в сутки: {{data.rooms.price }}</p>
 
 </ul>
 {% endblock %}
+{##}
+{#    {% for i in data.rooms %}#}
+{#        {% if idfor == i.hotel_id_id %}#}
+{#            <p>Категория: {{i.category }}</p>#}
+{#            <p>Тип кровати: {{i.bed_type }}</p>#}
+{#            <p>Стоимость в сутки: {{i.price }}</p>#}
+{#        {% endif %}#}
+{#    {% empty %}#}
+{#        <li>Номера распроданы </li>#}
+{#    {% endfor %}#}
+{#{% endblock %}#}

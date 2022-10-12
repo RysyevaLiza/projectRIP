@@ -6,7 +6,8 @@
 
 <ul>
     {% for i in data.show %}
-        <li><a href="{% url  'count_url_url'  i.id %}">{{ i.full_name }} </a>
+        <li>{{ i.full_name }}</li>
+{#        <li><a href="{% url  'count_url'  i.id %}">{{ i.full_name }} </a>#}
         <br> Адрес: {{ i.full_name}}
     {% endfor %}#}
 </ul>
