@@ -3,13 +3,13 @@
 {% block title %}Список отелей{% endblock %}
 
 {% block content %}
-    {% for hotel in data.hotel %}
-        <li><a href="{% url  'hotel_url'  hotel.idhotel %}">{{ hotel.name }} </a>
+    {% for hotel in data.hotels %}
+        <li><a href="{% url  'hotel_url'  hotel.id %}">{{ hotel.name }} </a>
         <br> Название: {{ hotel.name}} руб.
         <br> Адрес: {{ hotel.address }}
         <br> Количество звезд: {{ hotel.stars }}</li>
         <br> Страна: {{ hotel.country }}
-{#        <img src="{% static hotel.image  %}" height="200" alt="photo {{ hotel.idhotel }}">#}
+        <div><img src={{ hotel.image }}></div>
     {% empty %}
         <li>Список пуст. </li>
     {% endfor %}

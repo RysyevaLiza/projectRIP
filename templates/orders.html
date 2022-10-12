@@ -5,15 +5,21 @@
 {% block content %}
 <p_hello>Добро пожаловать! Туроператор PegasFly-гарант вашего отдыха</p_hello>
 <p_hepl><br> Пожалуйста, выберите нужный раздел</p_hepl>
-<ul>
-    {% for i in data.range %}
-{#        <li><a href="{% url 'tour_url' i.idrange %}">{{ i.rangeName }}</a> </li>#}
-        <li>{{ i.rangeName }}</li>
-    {% empty %}
-        <li>Список пуст! Sold out</li>
-    {% endfor %}
-</ul>
+
+{#<ul>#}
+{#    {% for i in data.test %}#}
+{#        <li><a href="{% url 'hotel_url' i.id %}">{{ i.rangeName }}</a> </li>#}
+{#        <li>{{ i.rangeName }}</li>#}
+{#    {% empty %}#}
+{#        <li>Список пуст! Sold out</li>#}
+{#    {% endfor %}#}
+   <ul>
+        <li><a href="{% url 'hotel_type_url' %}">Отели</a></li>
+        <li><a href="{% url 'cont_type_url' %}">Контакты</a></li>
+    </ul>
 {% endblock %}
+
+
 
 {#% for i in data.tour %#}
         {#% if i.title == 'Страны' %#}

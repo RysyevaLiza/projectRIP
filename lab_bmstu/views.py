@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from datetime import date
 
-from lab_bmstu.models import hotel, room, range
+from lab_bmstu.models import hotel, room, range, show
 
 def start(request):
     return render(request, 'index.html', { 'data' : {
@@ -12,13 +12,13 @@ def start(request):
 
 
 def GetTours(request):
-    return render(request, 'orders.html', {'data':
-                                               range.objects.all()
-                                           })
+    return render(request, 'orders.html', {'data':{
+        'current_date': date.today(),
+        'test': range.objects.all()}})
 def GetTour(request, id):
-    return render(request, 'order.html', {'data':
-                                              range.objects.filter(range_id=id)
-                                          })
+    return render(request, 'hotels.html', {'data': {'range':
+                                              range.objects.filter(id=id)
+                                          }})
 
 def GetHotels(request):
 	return render(request, 'hotels.html', {'data':{
@@ -26,9 +26,9 @@ def GetHotels(request):
 	}})
 
 def GetRooms(request, id):
-	return render(request,'rooms.html', {'data':{
+	return render(request,'hotel.html', {'data':{
 		'hotel':hotel.objects.filter(id=id)[0],
-		'rooms': room.objects.filter(hotel_id=id)
+		'rooms': room.objects.filter(id=id)[0]
 	}})
 
 def GetContact(request):

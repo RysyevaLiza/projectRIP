@@ -8,8 +8,6 @@ class client(models.Model):
     number_card = models.IntegerField(blank=True, null=True,default=None)
     phone = models.CharField(max_length=11, default=None)
     email = models.EmailField(max_length=45, default=None)
-    login = models.CharField(max_length=10, default=None)
-    password = models.CharField(max_length=10, default=None)
 
 class hotel(models.Model):
     name = models.CharField(max_length=45, default=None)
@@ -35,10 +33,6 @@ class order(models.Model):
      check_out = models.DateTimeField(blank=True, null=True, default=None)
      total = models.IntegerField(blank=True, null=True, default=None)
 
-
 class range(models.Model):
      rangeName = models.CharField(unique=True, max_length=30, default=None)
 
-
-class range(models.Model):
-    rangeName = models.CharField(unique=True, max_length=30, default=None)
