@@ -3,23 +3,13 @@
 {% block title %}Список отелей{% endblock %}
 
 {% block content %}
+    {% for i in data.rooms %}
 
-<ul>
+            <p>Категория: {{i.category }}</p>
+            <p>Тип кровати: {{i.bed_type }}</p>
+            <p>Стоимость в сутки: {{i.price }}</p>
 
-        <p>Категория: {{data.rooms.category }}</p>
-        <p>Тип кровати: {{data.rooms.bed_type }}</p>
-        <p>Стоимость в сутки: {{data.rooms.price }}</p>
-
-</ul>
+    {% empty %}
+        <li>Номера распроданы </li>
+    {% endfor %}
 {% endblock %}
-{##}
-{#    {% for i in data.rooms %}#}
-{#        {% if idfor == i.hotel_id %}#}
-{#            <p>Категория: {{i.category }}</p>#}
-{#            <p>Тип кровати: {{i.bed_type }}</p>#}
-{#            <p>Стоимость в сутки: {{i.price }}</p>#}
-{#        {% endif %}#}
-{#    {% empty %}#}
-{#        <li>Номера распроданы </li>#}
-{#    {% endfor %}#}
-{#{% endblock %}#}

@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 from datetime import date
-
-from lab_bmstu.models import hotel, room, range, show
+from rest_framework import viewsets
+from .models import hotel, room, range, show
+from .serilazers import hotelSerializer
 
 def start(request):
     return render(request, 'index.html', { 'data' : {
@@ -11,6 +12,13 @@ def start(request):
     }})
 
 
+class hotelViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint, который позволяет просматривать и редактировать акции компаний
+    """
+    # queryset всех пользователей для фильтрации по дате последнего изменения
+    queryset = hotel.objects.all().order_by('stars')
+    serializer_class = hotelSerializer  # Сериализатор для модели
 def GetTours(request):
     return render(request, 'orders.html', {'data':{
         'current_date': date.today(),
@@ -27,8 +35,8 @@ def GetHotels(request):
 
 def GetRooms(request, id):
 	return render(request,'hotel.html', {'data':{
-		'hotel':hotel.objects.filter(id=id)[0],
-		'rooms': room.objects.filter(hotel_id=id)[0],
+		'hotel':hotel.objects.filter(id=id),
+		'rooms': room.objects.filter(hotel_id=id),
         'idfor' : id
 	}})
 
