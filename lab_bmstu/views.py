@@ -3,7 +3,7 @@ from django.shortcuts import render
 from datetime import date
 from rest_framework import viewsets
 from .models import hotel, room, range, show
-from .serilazers import hotelSerializer
+from .serilazers import hotelSerializer, roomSerializer, showSerializer
 
 def start(request):
     return render(request, 'index.html', { 'data' : {
@@ -17,8 +17,27 @@ class hotelViewSet(viewsets.ModelViewSet):
     API endpoint, который позволяет просматривать и редактировать акции компаний
     """
     # queryset всех пользователей для фильтрации по дате последнего изменения
+    print(hotel.objects.all().order_by('stars'))
     queryset = hotel.objects.all().order_by('stars')
     serializer_class = hotelSerializer  # Сериализатор для модели
+
+
+class showViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint, который позволяет просматривать и редактировать акции компаний
+    """
+    # queryset всех пользователей для фильтрации по дате последнего изменения
+    queryset = show.objects.all().order_by('id')
+    serializer_class = showSerializer
+
+
+class roomViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint, который позволяет просматривать и редактировать акции компаний
+    """
+    # queryset всех пользователей для фильтрации по дате последнего изменения
+    queryset = room.objects.all().order_by('max_count')
+    serializer_class = roomSerializer
 def GetTours(request):
     return render(request, 'orders.html', {'data':{
         'current_date': date.today(),

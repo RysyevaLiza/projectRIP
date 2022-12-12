@@ -6,8 +6,8 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'pages', views.hotelViewSet)
-#router.register(r'room', hotel_views.roomViewSet)
-#router.register(r'show', hotel_views.showlViewSet)
+router.register(r'room', views.roomViewSet)
+router.register(r'show', views.showViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [

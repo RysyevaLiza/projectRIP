@@ -14,7 +14,7 @@ class hotel(models.Model):
     address = models.CharField(max_length=45, default=None)
     stars = models.CharField(max_length=3, default=None)
     country = models.CharField(max_length=45, default=None)
-    image = models.ImageField(default=None)
+    image = models.CharField(max_length=100, default=None)
 
 class room(models.Model):
      hotel_id = models.ForeignKey(hotel, models.DO_NOTHING, default=None)
